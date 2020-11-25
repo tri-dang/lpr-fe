@@ -2,11 +2,10 @@ import gql from "graphql-tag";
 
 const ALBUMS_QUERY = gql`
   query Albums {
-    Albums {
+    albums {
       id
       title
       seo
-      photos
     }
   }
 `;
