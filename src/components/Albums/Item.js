@@ -16,12 +16,14 @@ const Item = ({ album: { galery: { photos }, title, slug, cover }}) => (
     <Row>
       <Col md={6}>
         <Photo picture={cover}  />
+        <br/>
+        <br/>
       </Col>
       <Col md={6}>
         <Row>
           {
             photos.slice(0, 3).map((photo, i) =>
-              <Col md={4}>
+              <Col md={4} sm={4} xs={4}>
                 <Photo picture={photo.picture}  />
               </Col>
             )
