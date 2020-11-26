@@ -6,6 +6,9 @@ const ALBUMS_QUERY = gql`
       id
       title
       slug
+      cover {
+        url
+      }
       galery {
         title
         name
