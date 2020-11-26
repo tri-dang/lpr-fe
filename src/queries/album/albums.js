@@ -6,6 +6,16 @@ const ALBUMS_QUERY = gql`
       id
       title
       slug
+      galery {
+        title
+        name
+        photos {
+          picture {
+            formats
+            url
+          }
+        }
+      }
     }
   }
 `;

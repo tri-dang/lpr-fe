@@ -1,9 +1,9 @@
-import Nav from "./components/Nav";
+import Albums from "./components/Albums";
 
 function App() {
   return (
     <div className="App">
-      <Nav />
+      <Albums />
     </div>
   );
 }
