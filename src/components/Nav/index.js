@@ -29,7 +29,7 @@ const Nav = () => {
                             to={`/album/${album.id}`}
                             className="uk-link-reset"
                           >
-                            {album.title}
+                            {album.title} - {album.slug}
                           </Link>
                         </li>
                       );

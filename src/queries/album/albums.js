@@ -5,7 +5,7 @@ const ALBUMS_QUERY = gql`
     albums {
       id
       title
-      seo
+      slug
     }
   }
 `;
