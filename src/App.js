@@ -1,9 +1,12 @@
 import Albums from "./components/Albums";
+import { Container } from 'react-bootstrap';
 
 function App() {
   return (
     <div className="App">
-      <Albums />
+      <Container>
+        <Albums />
+      </Container>
     </div>
   );
 }
