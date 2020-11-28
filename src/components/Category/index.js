@@ -1,4 +1,5 @@
 import React from "react";
+import { useParams } from "react-router";
 
 import Query from "../Query";
 import Albums from '../Albums';
@@ -12,4 +13,12 @@ const Category = ({ slug }) => (
   </Query>
 );
 
-export default Category;
+const RoutedComponent = () => {
+  let { slug } = useParams();
+  return (
+    <Category slug={slug} />
+  )
+};
+
+export { RoutedComponent };
+export default Category
