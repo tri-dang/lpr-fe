@@ -1,8 +1,7 @@
 import React from "react";
 import { Row, Col } from 'react-bootstrap';
 
-const Photo = ({ picture }) =>
-  picture && <img src={picture.url} alt="" width="100%" />;
+import { Photo } from '../shared/Photo';
 
 const Item = ({ album: { galery: { photos }, title, slug, cover }}) => (
   <>
