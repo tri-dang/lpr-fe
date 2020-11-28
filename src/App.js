@@ -2,7 +2,7 @@ import { Container } from 'react-bootstrap';
 
 import Query from "./components/Query";
 import Albums from "./components/Albums";
-import META_QUERY from "./queries/meta/meta";
+import META_BY_SLUG_QUERY from "./queries/meta/metaBySlug";
 
 const containerStyles = {
   marginTop: 10
@@ -11,18 +11,20 @@ const containerStyles = {
 function App() {
   return (
     <div className="App">
-        <Query query={META_QUERY} id='1'>
-          {({ data: { meta } }) => {
+      <Container style={containerStyles}>
+        <Query query={META_BY_SLUG_QUERY} slug='logo' spinnerDisabled>
+          {({ data: { metaBySlug } }) => {
             return (
-              <Container style={containerStyles}>
-                <img src={meta.picture[0].url} width='100' alt=''/>
+              <div>
+                <img src={metaBySlug.picture[0].url} width='50' alt='' />
                 <br/>
                 <br/>
                 <Albums />
-              </Container>
+              </div>
             )
           }}
         </Query>
+      </Container>
     </div>
   );
 }
