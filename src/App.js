@@ -1,7 +1,7 @@
 import { Container } from 'react-bootstrap';
 
 import Query from "./components/Query";
-import Albums from "./components/Albums";
+import Categories from "./components/Categories";
 import META_BY_SLUG_QUERY from "./queries/meta/metaBySlug";
 
 const containerStyles = {
@@ -19,7 +19,7 @@ function App() {
                 <img src={metaBySlug.picture[0].url} width='50' alt='' />
                 <br/>
                 <br/>
-                <Albums />
+                <Categories />
               </div>
             )
           }}
