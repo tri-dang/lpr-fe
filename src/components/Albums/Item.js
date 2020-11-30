@@ -11,7 +11,6 @@ const photoContainerStyles = {
 const PhotoItem = ({ photo: { picture, title } }) => (
   <Col md={4} sm={4} xs={4} style={photoContainerStyles}>
     <Photo picture={picture} title={title}  />
-
   </Col>
 );
 
