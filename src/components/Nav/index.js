@@ -18,16 +18,24 @@ const lineStyles = {
 
 const contactContainerStyles = {
   textAlign: 'right',
-  fontSize: 9
+  fontSize: 10
 };
 
 const Contact = () => (
   <div style={contactContainerStyles}>
     <p style={lineStyles}>
-      Phone: +84907054403
+      <a href="tel:+84907054403" target="_blank" rel="noreferrer" style={linkStyles}>
+        +84907054403
+        &nbsp;
+        <FontAwesomeIcon icon={["fas", "mobile-alt"]} />
+      </a>
     </p>
     <p style={lineStyles}>
-      Location: 19 Street 46, Thao Dien, District 2, Ho Chi Minh
+      <a href="https://goo.gl/maps/X4YiWJvnVtnd4szp7" target="_blank" rel="noreferrer" style={linkStyles}>
+        19 Street 46, Thao Dien, Dist 2, Ho Chi Minh
+        &nbsp;
+        <FontAwesomeIcon icon={["fas", "map-marker-alt"]} />
+      </a>
     </p>
     <p style={lineStyles}>
       <a href="https://www.facebook.com/laphotorouge" target="_blank" rel="noreferrer" style={linkStyles}>
