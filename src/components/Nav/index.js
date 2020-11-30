@@ -9,7 +9,7 @@ import { linkStyles } from '../shared/Link';
 
 const logoStyles = {
   width: '18vw',
-  maxWidth: '100px'
+  maxWidth: '70px'
 };
 
 const lineStyles = {
@@ -18,7 +18,10 @@ const lineStyles = {
 
 const contactContainerStyles = {
   textAlign: 'right',
-  fontSize: 10
+  fontSize: 11,
+  height: '18vw',
+  maxHeight: '70px',
+  margin: 'auto 0'
 };
 
 const Contact = () => (
@@ -60,12 +63,12 @@ const Nav = ({ logoMeta }) => (
       return (
         <>
           <Row>
-            <Col xs={3} >
+            <Col xs={2} >
               <Link to='/'>
                 <img src={metaBySlug.picture[0].url} style={logoStyles} alt={metaBySlug.name} />
               </Link>
             </Col>
-            <Col xs={9} >
+            <Col xs={10} >
               <Contact />
             </Col>
           </Row>
