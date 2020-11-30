@@ -10,7 +10,7 @@ const Nav = ({ logoMeta }) => (
       return (
         <>
           <Link to='/'>
-            <img src={metaBySlug.picture[0].url} height='50' alt='' />
+            <img src={metaBySlug.picture[0].url} height='100' alt='' />
           </Link>
           <br/>
           <br/>
