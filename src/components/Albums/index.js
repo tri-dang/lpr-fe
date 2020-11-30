@@ -5,7 +5,7 @@ import Item from './Item';
 const Albums = ({ albums }) => (
   <>
     {albums.map((album, i) =>
-      album.galery && album.galery.photos.length > 0 &&
+      album.galery && album.galery.images.length > 0 &&
       <Item album={album} key={i} />
     )}
   </>

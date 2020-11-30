@@ -12,12 +12,8 @@ const ALBUM_BY_SLUG_QUERY = gql`
       galery {
         title
         name
-        photos {
-          title
-          picture {
-            formats
-            url
-          }
+        images {
+          url
         }
       }
     }

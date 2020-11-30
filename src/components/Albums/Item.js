@@ -1,20 +1,20 @@
 import React from "react";
 import { Row, Col } from 'react-bootstrap';
 
-import { Photo } from '../shared/Photo';
+import Image from '../shared/Image';
 
 const photoContainerStyles = {
   margin: 'auto 0',
   paddingBottom: 45
 };
 
-const PhotoItem = ({ photo: { picture, title } }) => (
+const ImageItem = ({ image }) => (
   <Col md={4} sm={4} xs={4} style={photoContainerStyles}>
-    <Photo picture={picture} title={title}  />
+    <Image image={image}  />
   </Col>
 );
 
-const Item = ({ album: { galery: { photos }, title, slug, cover }}) => (
+const Item = ({ album: { galery: { images }, title, slug, cover }}) => (
   <>
     <Row>
       <Col>
@@ -25,15 +25,15 @@ const Item = ({ album: { galery: { photos }, title, slug, cover }}) => (
     </Row>
     <Row>
       <Col md={6}>
-        <Photo picture={cover}  />
+        <Image image={cover}  />
         <br/>
         <br/>
       </Col>
       <Col md={6}>
         <Row>
           {
-            photos.slice(0, 9).map((photo, i) =>
-              <PhotoItem photo={photo} />
+            images.slice(0, 9).map((image, i) =>
+              <ImageItem image={image} />
             )
           }
         </Row>

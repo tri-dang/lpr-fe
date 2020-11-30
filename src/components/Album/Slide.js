@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Row, Col, Carousel } from 'react-bootstrap';
-import { Photo } from '../shared/Photo';
+import Image from '../shared/Image';
 
 const StyledRow = styled(Row)`
   height: calc((100vw - 30px) * 3 / 4);
@@ -11,7 +11,7 @@ const StyledRow = styled(Row)`
   }
 `;
 
-const Slide = ({ album: { galery: { photos }, title, slug, cover }}) => (
+const Slide = ({ album: { galery: { images }, title, slug, cover }}) => (
   <>
     <Row className="justify-content-md-center">
       <Col md={6}>
@@ -24,11 +24,11 @@ const Slide = ({ album: { galery: { photos }, title, slug, cover }}) => (
       <Col md={6}>
         <Carousel>
           {
-            photos.map((photo, i) =>
+            images.map((image, i) =>
               <Carousel.Item key={i}>
                 <StyledRow>
                   <Col style={{ margin: 'auto 0' }}>
-                    <Photo picture={photo.picture} title={photo.title}  />
+                    <Image image={image}  />
                   </Col>
                 </StyledRow>
               </Carousel.Item>
