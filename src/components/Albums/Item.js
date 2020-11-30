@@ -32,7 +32,7 @@ const Item = ({ album: { galery: { photos }, title, slug, cover }}) => (
       <Col md={6}>
         <Row>
           {
-            photos.slice(0, 10).map((photo, i) =>
+            photos.slice(0, 9).map((photo, i) =>
               <PhotoItem photo={photo} />
             )
           }
