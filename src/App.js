@@ -1,10 +1,14 @@
 import { Container } from 'react-bootstrap';
 import { Switch, Route } from "react-router-dom";
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { fab } from '@fortawesome/free-brands-svg-icons';
 
 import Nav from './components/Nav';
 import Categories from "./components/Categories";
 import { RoutedComponent as Category } from "./components/Category";
 import { RoutedComponent as Album } from "./components/Album";
+
+library.add(fab);
 
 const containerStyles = {
   marginTop: 10
