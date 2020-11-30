@@ -17,6 +17,7 @@ const CATEGORY_BY_SLUG_QUERY = gql`
           title
           name
           photos {
+            title
             picture {
               formats
               url

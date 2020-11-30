@@ -13,6 +13,7 @@ const ALBUMS_QUERY = gql`
         title
         name
         photos {
+          title
           picture {
             formats
             url
