@@ -1,5 +1,5 @@
 import { Container } from 'react-bootstrap';
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, BrowserRouter } from "react-router-dom";
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fab } from '@fortawesome/free-brands-svg-icons';
 import { fas } from '@fortawesome/free-solid-svg-icons';
@@ -19,14 +19,16 @@ const containerStyles = {
 function App() {
   return (
     <div className="App">
-      <Container style={containerStyles}>
-        <Nav />
-        <Switch>
-          <Route path="/" component={Categories} exact />
-          <Route path="/categories/:slug" component={Category} exact />
-          <Route path="/albums/:slug" component={Album} exact />
-        </Switch>
-      </Container>
+      <BrowserRouter>
+        <Container style={containerStyles}>
+          <Nav />
+          <Switch>
+            <Route path="/" component={Categories} exact />
+            <Route path="/categories/:slug" component={Category} exact />
+            <Route path="/albums/:slug" component={Album} exact />
+          </Switch>
+        </Container>
+      </BrowserRouter>
     </div>
   );
 }
