@@ -3,6 +3,18 @@ import { Row, Col } from 'react-bootstrap';
 
 import { Photo } from '../shared/Photo';
 
+const photoContainerStyles = {
+  margin: 'auto 0',
+  paddingBottom: 45
+};
+
+const PhotoItem = ({ photo: { picture, title } }) => (
+  <Col md={4} sm={4} xs={4} style={photoContainerStyles}>
+    <Photo picture={picture} title={title}  />
+
+  </Col>
+);
+
 const Item = ({ album: { galery: { photos }, title, slug, cover }}) => (
   <>
     <Row>
@@ -21,10 +33,8 @@ const Item = ({ album: { galery: { photos }, title, slug, cover }}) => (
       <Col md={6}>
         <Row>
           {
-            photos.slice(0, 3).map((photo, i) =>
-              <Col md={4} sm={4} xs={4}>
-                <Photo picture={photo.picture} title={photo.title}  />
-              </Col>
+            photos.slice(0, 10).map((photo, i) =>
+              <PhotoItem photo={photo} />
             )
           }
         </Row>
