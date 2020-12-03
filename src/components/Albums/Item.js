@@ -2,6 +2,7 @@ import React from "react";
 import { Row, Col } from 'react-bootstrap';
 
 import Image from '../shared/Image';
+import Thumbnail from '../shared/Thumbnail';
 
 const photoContainerStyles = {
   margin: 'auto 0',
@@ -10,7 +11,7 @@ const photoContainerStyles = {
 
 const ImageItem = ({ image }) => (
   <Col md={4} sm={4} xs={4} style={photoContainerStyles}>
-    <Image image={image}  />
+    <Thumbnail image={image}  />
   </Col>
 );
 

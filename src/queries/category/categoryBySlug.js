@@ -11,13 +11,13 @@ const CATEGORY_BY_SLUG_QUERY = gql`
         title
         slug
         cover {
-          url
+          formats
         }
         galery {
           title
           name
           images {
-            url
+            formats
           }
         }
       }
