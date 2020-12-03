@@ -17,7 +17,7 @@ const containerStyles = {
 const Item = ({ category: { cover, name, slug } }) => (
   <Col md={6} sm={12} style={containerStyles}>
     <Link to={`/categories/${slug}`} className="uk-link-reset">
-      <Card.Img src={cover.url} alt={name} />
+      <Card.Img src={cover.formats.large.url} alt={name} />
       <Card.ImgOverlay>
         <Card.Title style={titleStyles}>{name}</Card.Title>
       </Card.ImgOverlay>

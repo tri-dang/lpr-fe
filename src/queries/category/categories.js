@@ -7,7 +7,7 @@ const CATEGORIES_QUERY = gql`
       name
       slug
       cover {
-        url
+        formats
       }
     }
   }
