@@ -36,8 +36,11 @@ const Item = ({ album: { galery: { images }, title, slug, cover }}) => {
         <Col md={6}>
           <Row>
             {
-              images.slice(0, 9).map((image, i) =>
-                <ImageItem image={image} onClick={setSelectedImage} />
+              images.map((image, i) =>
+                image.id === selectedImage.id ?
+                  <ImageItem image={cover} onClick={setSelectedImage} />
+                  :
+                  <ImageItem image={image} onClick={setSelectedImage} />
               )
             }
           </Row>
