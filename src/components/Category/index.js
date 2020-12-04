@@ -13,7 +13,7 @@ const Category = ({ slug }) => (
       <MetaTags>
         <meta property="og:title" content={name} />
         <meta property="og:type" content="Category" />
-        <meta property="og:url" content="https://www.laphotorouge.com/" />
+        <meta property="og:url" content={`https://www.laphotorouge.com/categories/${slug}`} />
         <meta property="og:image" content={cover.formats.thumbnail.url} />
 
         <meta name="twitter:card" content={cover.formats.thumbnail.url}/>
