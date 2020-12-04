@@ -6,6 +6,9 @@ const CATEGORY_BY_SLUG_QUERY = gql`
       id
       name
       slug
+      cover {
+        formats
+      }
       albums {
         id
         title
