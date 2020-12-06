@@ -1,6 +1,6 @@
 import React from 'react';
 import { Row } from 'react-bootstrap';
-import MetaTags from 'react-meta-tags';
+import {Helmet} from "react-helmet";
 
 import Query from "../Query";
 import Item from './Item';
@@ -9,19 +9,17 @@ import CATEGORIES_QUERY from "../../queries/category/categories";
 const Categories = () => {
   return (
     <div>
-      <MetaTags>
+      <Helmet>
         <meta property="og:title" content="Baby and family photography" />
         <meta property="og:type" content="Categories" />
         <meta property="og:url" content="https://www.laphotorouge.com/" />
         <meta property="og:image" content="https://res.cloudinary.com/dlgkecjjd/image/upload/v1606714969/small_DSC_5109_1_d2d1b54d4e.jpg" />
 
-        <meta property="twitter:card" content="https://res.cloudinary.com/dlgkecjjd/image/upload/v1606714969/small_DSC_5109_1_d2d1b54d4e.jpg"/>
-        <meta property="twitter:site" content="La photo Rouge"/>
-        <meta property="twitter:title" content="La photo Rouge"/>
-        <meta property="twitter:description" content="Baby and family photography with on demand or preset concepts"/>
-        <meta property="twitter:creator" content="La photo Rouge"/>
-        <meta property="twitter:image:src" content="https://res.cloudinary.com/dlgkecjjd/image/upload/v1606714969/small_DSC_5109_1_d2d1b54d4e.jpg" />
-      </MetaTags>
+        <meta name="twitter:card" content="summary"/>
+        <meta name="twitter:site" content="La photo Rouge"/>
+        <meta name="twitter:creator" content="La photo Rouge"/>
+        <meta name="twitter:description" content="Baby and family photography with on demand or preset concepts"/>
+      </Helmet>
       <Query query={CATEGORIES_QUERY}>
         {({ data: { categories } }) => {
           return (
