@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Row, Col } from 'react-bootstrap';
+import { Row, Col, Modal } from 'react-bootstrap';
 
 import Image from '../shared/Image';
 import Thumbnail from '../shared/Thumbnail';
@@ -16,10 +16,31 @@ const ImageItem = ({ image, onClick }) => (
   </Col>
 );
 
+const Zoom = ({ show, onHide, image, onClick  }) => {
+  return (
+    <Modal show={show} onHide={onHide} onClick={onHide} centered>
+      {
+        image && <Image image={image}  />
+      }
+    </Modal>
+  )
+};
+
 const Item = ({ album: { galery: { images }, title, slug, cover }}) => {
   const [selectedImage, setSelectedImage] = useState(0);
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+  const handleOnClick = (image) => {
+
+    setSelectedImage(image);
+    handleShow();
+  };
+
   return (
     <>
+      <Zoom image={selectedImage} show={show} onHide={handleClose} onClick={handleClose} />
       <Row>
         <Col>
           <h3>
@@ -28,19 +49,13 @@ const Item = ({ album: { galery: { images }, title, slug, cover }}) => {
         </Col>
       </Row>
       <Row>
-        <Col md={6} style={{ margin: 'auto' }}>
-          <Image image={selectedImage || cover}  />
-          <br/>
-          <br/>
+        <Col md={6} style={{ margin: 'auto', cursor: 'pointer' }} onClick={() => handleOnClick(cover)}>
+          <Image image={cover} />
         </Col>
         <Col md={6}>
           <Row>
             {
-              images.map((image, i) =>
-                image.id === selectedImage.id ?
-                  <ImageItem image={cover} onClick={setSelectedImage} />
-                  :
-                  <ImageItem image={image} onClick={setSelectedImage} />
+              images.map((image, i) => <ImageItem image={image} onClick={handleOnClick} />
               )
             }
           </Row>
