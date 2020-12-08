@@ -35,6 +35,9 @@ const Zoom = ({ index, images, show, onHide, onClick, swipedHanders }) => {
   )
 };
 
+const getPrevIndex = (index, length) => index === 0 ? length - 1 : index - 1;
+const getNextIndex = (index, length) => index === length - 1 ? 0 : index + 1;
+
 const Item = ({ album: { galery: { images }, title, slug, cover }}) => {
   const carouselImages = [cover, ...images];
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -49,8 +52,8 @@ const Item = ({ album: { galery: { images }, title, slug, cover }}) => {
   };
 
   const swipedHanders = useSwipeable({
-    onSwipedLeft: () => setSelectedIndex(selectedIndex + 1),
-    onSwipedRight: () => setSelectedIndex(selectedIndex - 1),
+    onSwipedLeft: () => setSelectedIndex(getNextIndex(selectedIndex, carouselImages.length)),
+    onSwipedRight: () => setSelectedIndex(getPrevIndex(selectedIndex, carouselImages.length)),
     trackMouse: true
   });
 
