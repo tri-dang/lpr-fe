@@ -18,7 +18,7 @@ const ImageItem = ({ image, onClick }) => (
 
 const Zoom = ({ show, onHide, image, onClick  }) => {
   return (
-    <Modal show={show} onHide={onHide} onClick={onHide} centered>
+    <Modal show={show} onHide={onHide} onClick={onHide} backdropClassName='laphotorouge-backdrop' centered>
       {
         image && <Image image={image}  />
       }
