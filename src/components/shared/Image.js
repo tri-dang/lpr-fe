@@ -1,6 +1,38 @@
 import React from "react";
 
-const Image = ({ image: { formats } }) =>
-  <img src={formats.large.url} alt='' width="100%" />;
+const useProgressiveImg = (lowQualitySrc, highQualitySrc) => {
+  const [src, setSrc] = React.useState(lowQualitySrc);
 
-export default Image;
+  React.useEffect(() => {
+    setSrc(lowQualitySrc);
+
+    const img = new Image();
+    img.src = highQualitySrc;
+
+    img.onload = () => {
+      setSrc(highQualitySrc);
+    };
+  }, [lowQualitySrc, highQualitySrc]);
+
+  return [src, { blur: src === lowQualitySrc }];
+};
+
+const Default = ({ image: { formats } }) => {
+  const [src, { blur }] = useProgressiveImg(
+    formats.thumbnail.url,
+    formats.large.url
+  );
+
+  return (
+    <img src={src} alt='' width="100%" style={{
+      filter: blur
+        ? "blur(20px)"
+        : "none",
+      transition: blur
+        ? "none"
+        : "filter 0.3s ease-out"
+    }} />
+  )
+};
+
+export default Default;
