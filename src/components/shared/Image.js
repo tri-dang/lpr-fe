@@ -28,9 +28,7 @@ const Default = ({ image: { formats } }) => {
       filter: blur
         ? "blur(20px)"
         : "none",
-      transition: blur
-        ? "none"
-        : "filter 0.3s ease-out"
+      transition:"none"
     }} />
   )
 };
