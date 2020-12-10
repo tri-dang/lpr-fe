@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useCallback, useMemo } from "react";
 import { Row, Col, Modal } from 'react-bootstrap';
 import { useSwipeable } from 'react-swipeable';
+import KeyboardEventHandler from 'react-keyboard-event-handler';
 
 import Image from '../shared/Image';
 import Thumbnail from '../shared/Thumbnail';
@@ -17,7 +18,13 @@ const ImageItem = ({ image, onClick }) => (
   </Col>
 );
 
-const Zoom = ({ index, images, show, onHide, onClick, swipedHanders }) => {
+const Zoom = ({ index, images, show, onHide, onClick, prevImage, nextImage }) => {
+  const swipedHanders = useSwipeable({
+    onSwipedLeft: nextImage,
+    onSwipedRight: prevImage,
+    trackMouse: true
+  });
+
   return (
       <Modal
         show={show}
@@ -30,6 +37,14 @@ const Zoom = ({ index, images, show, onHide, onClick, swipedHanders }) => {
           {
             images[index] && <Image image={images[index]}  />
           }
+          <KeyboardEventHandler
+            handleFocusableElements
+            handleKeys={['left']}
+            onKeyEvent={prevImage} />
+          <KeyboardEventHandler
+            handleFocusableElements
+            handleKeys={['right']}
+            onKeyEvent={nextImage} />
         </div>
       </Modal>
   )
@@ -39,7 +54,7 @@ const getPrevIndex = (index, length) => index === 0 ? length - 1 : index - 1;
 const getNextIndex = (index, length) => index === length - 1 ? 0 : index + 1;
 
 const Item = ({ album: { galery: { images }, title, slug, cover }}) => {
-  const carouselImages = [cover, ...images];
+  const carouselImages = useMemo(() => [cover, ...images], [cover, images]);
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [show, setShow] = useState(false);
 
@@ -51,15 +66,27 @@ const Item = ({ album: { galery: { images }, title, slug, cover }}) => {
     handleShow();
   };
 
-  const swipedHanders = useSwipeable({
-    onSwipedLeft: () => setSelectedIndex(getNextIndex(selectedIndex, carouselImages.length)),
-    onSwipedRight: () => setSelectedIndex(getPrevIndex(selectedIndex, carouselImages.length)),
-    trackMouse: true
-  });
+  const prevImage = useCallback(
+    () => setSelectedIndex(getPrevIndex(selectedIndex, carouselImages.length)),
+    [selectedIndex, setSelectedIndex, carouselImages]
+  );
+
+  const nextImage = useCallback(
+    () => setSelectedIndex(getNextIndex(selectedIndex, carouselImages.length)),
+    [selectedIndex, setSelectedIndex, carouselImages]
+  );
 
   return (
     <>
-      <Zoom index={selectedIndex} images={carouselImages} show={show} onHide={handleClose} onClick={handleClose} swipedHanders={swipedHanders} />
+      <Zoom
+        index={selectedIndex}
+        images={carouselImages}
+        show={show}
+        onHide={handleClose}
+        onClick={handleClose}
+        nextImage={nextImage}
+        prevImage={prevImage}
+      />
       <Row>
         <Col>
           <h3>
