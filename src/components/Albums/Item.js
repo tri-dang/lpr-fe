@@ -2,6 +2,7 @@ import React, { useState, useCallback, useMemo } from "react";
 import { Row, Col, Modal } from 'react-bootstrap';
 import { useSwipeable } from 'react-swipeable';
 import KeyboardEventHandler from 'react-keyboard-event-handler';
+import Markdown from 'react-markdown';
 
 import Image from '../shared/Image';
 import Thumbnail from '../shared/Thumbnail';
@@ -53,7 +54,7 @@ const Zoom = ({ index, images, show, onHide, onClick, prevImage, nextImage }) =>
 const getPrevIndex = (index, length) => index === 0 ? length - 1 : index - 1;
 const getNextIndex = (index, length) => index === length - 1 ? 0 : index + 1;
 
-const Item = ({ album: { galery: { images }, title, slug, cover }}) => {
+const Item = ({ album: { galery: { images }, title, slug, cover, description }}) => {
   const carouselImages = useMemo(() => [cover, ...images], [cover, images]);
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [show, setShow] = useState(false);
@@ -99,6 +100,9 @@ const Item = ({ album: { galery: { images }, title, slug, cover }}) => {
           <Image image={cover} />
           <br/>
           <br/>
+          <Markdown>
+            {description}
+          </Markdown>
         </Col>
         <Col md={6}>
           <Row>
