@@ -54,7 +54,7 @@ const Zoom = ({ index, images, show, onHide, onClick, prevImage, nextImage }) =>
 const getPrevIndex = (index, length) => index === 0 ? length - 1 : index - 1;
 const getNextIndex = (index, length) => index === length - 1 ? 0 : index + 1;
 
-const Item = ({ album: { galery: { images }, title, slug, cover, description }}) => {
+const Item = ({ album: { galery: { images }, title, slug, cover, content }}) => {
   const carouselImages = useMemo(() => [cover, ...images], [cover, images]);
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [show, setShow] = useState(false);
@@ -101,7 +101,7 @@ const Item = ({ album: { galery: { images }, title, slug, cover, description }})
           <br/>
           <br/>
           <Markdown>
-            {description}
+            {content}
           </Markdown>
         </Col>
         <Col md={6}>

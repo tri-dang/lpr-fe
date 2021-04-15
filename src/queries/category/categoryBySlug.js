@@ -24,7 +24,7 @@ const CATEGORY_BY_SLUG_QUERY = gql`
             formats
           }
         }
-        description
+        content
       }
     }
   }
