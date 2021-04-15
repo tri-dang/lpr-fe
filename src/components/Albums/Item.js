@@ -96,7 +96,7 @@ const Item = ({ album: { galery: { images }, title, slug, cover, description }})
         </Col>
       </Row>
       <Row>
-        <Col md={6} style={{ margin: 'auto', cursor: 'pointer' }} onClick={() => handleOnClick(0)}>
+        <Col md={6} style={{ cursor: 'pointer' }} onClick={() => handleOnClick(0)}>
           <Image image={cover} />
           <br/>
           <br/>
