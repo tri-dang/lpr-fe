@@ -34,8 +34,8 @@ const Contact = () => (
       </a>
     </p>
     <p style={lineStyles}>
-      <a href="https://goo.gl/maps/X4YiWJvnVtnd4szp7" target="_blank" rel="noreferrer" style={linkStyles}>
-        19 Street 46, Thao Dien, Dist 2, Ho Chi Minh
+      <a href="https://goo.gl/maps/2QxPu1XqTRZ3TMUz7" target="_blank" rel="noreferrer" style={linkStyles}>
+        Old District 2 (Thu Duc city), Ho Chi Minh
         &nbsp;
         <FontAwesomeIcon icon={["fas", "map-marker-alt"]} />
       </a>
