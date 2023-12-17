@@ -3,9 +3,10 @@ import Link from "../shared/Link";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Row, Col } from 'react-bootstrap';
 
-import Query from "../Query";
+import Query from '../Query';
 import META_BY_SLUG_QUERY from "../../queries/meta/metaBySlug";
 import { linkStyles } from '../shared/Link';
+import mock from "./mock";
 
 const logoStyles = {
   width: '18vw',
@@ -57,8 +58,8 @@ const Contact = () => (
   </div>
 );
 
-const Nav = ({ logoMeta }) => (
-  <Query query={META_BY_SLUG_QUERY} slug='logo' spinnerDisabled>
+const Nav = () => (
+  <Query query={META_BY_SLUG_QUERY} slug='logo' mock={mock} spinnerDisabled>
     {({ data: { metaBySlug } }) => {
       return (
         <>
